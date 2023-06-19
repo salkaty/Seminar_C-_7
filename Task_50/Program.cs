@@ -54,15 +54,13 @@ void FindIndex(int[,] array, int count, int index, int cols, int rows)
         }
         else
         {
-            while (index > cols)
-            {
-                index = index - cols;
-                numI++;
-            }
-            if (index<cols||index==cols)
-            {
-                numJ=index-1;
-            }
+               numI = index/cols;
+            numJ=index%cols;
+           
+            //if (index<cols||index==cols)
+            //{
+               // numJ=index-1;
+            //}
         }
 
 
