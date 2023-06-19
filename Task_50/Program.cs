@@ -42,20 +42,28 @@ void FindIndex(int[,] array, int count, int index, int cols, int rows)
     {
         int numI = 0;
         int numJ = 0;
-        while (index > cols)
-        {
-            index = index - cols;
-            numI++;
-        }
         if (index == cols)
-        {
-            numI++;
-            numJ = cols - 1;
-        }
-        else if (index < cols)
         {
             numJ = index - 1;
         }
+        else if (index == count || index < (count - cols + 1))
+        {
+            numI = rows - 1;
+            numJ = (index % rows) - 1;
+        }
+        else
+        {
+            while (index > cols)
+            {
+                index = index - cols;
+                numI++;
+            }
+            if (index<cols||index==cols)
+            {
+                numJ=index-1;
+            }
+        }
+
 
         System.Console.WriteLine($"{numI},{numJ} ");
 
