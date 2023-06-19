@@ -45,6 +45,7 @@ void FindIndex(int[,] array, int count, int index, int cols, int rows)
         if (index == cols)
         {
             numJ = index - 1;
+            break;
         }
         else if (index == count || index < (count - cols + 1))
         {
