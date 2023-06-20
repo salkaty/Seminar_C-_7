@@ -10,30 +10,32 @@ void FillArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
-            array[i,j] = new Random().Next(0,101);
+            array[i, j] = new Random().Next(0, 11);
 }
 
 void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
-        {
+    {
         for (int j = 0; j < array.GetLength(1); j++)
-            Console.Write($"{array[i,j],3}    ");
+            Console.Write($"{array[i, j],3}    ");
         System.Console.WriteLine();
-        }
+    }
 }
 
 void AveregeToCols(int[,] array, int rows)
 {
-  for (int J = 0; J < array.GetLength(1); j++)
-  int sumCols=0;
-        {
+    for (int j = 0; j < array.GetLength(1); j++)
+
+    {
+        double sumCols = 0;
         for (int i = 0; i < array.GetLength(0); i++)
-        sumCols=sumCols+array[i,j];
-            
-        } 
-         Console.Write($"Среднее арифметическое по {J}столбцу равно {sumCols/rows}    ");
-        System.Console.WriteLine();
+            sumCols = sumCols + array[i, j];
+        Console.WriteLine($"Среднее арифметическое по столбцу  {j} равно {Math.Round(sumCols / rows, 2)}    ");
+    }
+    System.Console.WriteLine();
+ 
+
 }
 
 
@@ -43,7 +45,8 @@ System.Console.WriteLine("Введите количество строк");
 int rows = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Введите количество столбцов");
 int cols = Convert.ToInt32(Console.ReadLine());
-int[,] array = new int [rows, cols];
+int[,] array = new int[rows, cols];
 FillArray(array);
 PrintArray(array);
-AveregeToCols(array,rows);
+AveregeToCols(array, rows);
+System.Console.WriteLine();
