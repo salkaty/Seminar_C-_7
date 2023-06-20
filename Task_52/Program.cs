@@ -26,9 +26,10 @@ void PrintArray(int[,] array)
 void AveregeToCols(int[,] array, int rows)
 {
   for (int J = 0; J < array.GetLength(1); j++)
+  int sumCols=0;
         {
         for (int i = 0; i < array.GetLength(0); i++)
-        int sumCols=sumCols+array[i,j];
+        sumCols=sumCols+array[i,j];
             
         } 
          Console.Write($"Среднее арифметическое по {J}столбцу равно {sumCols/rows}    ");
