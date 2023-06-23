@@ -14,10 +14,10 @@
 
 void FillArray(int[,] array)
 {
-    int count = 0;
+   
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
-            array[i, j] = new Random().Next(-30, 31);
+            array[i, j] = new Random().Next(1, 11);
 
 }
 
@@ -31,44 +31,26 @@ void PrintArray(int[,] array)
     }
 }
 
-void FindIndex(int[,] array, int count, int index, int cols, int rows)
+void FindNumber(int number, int[,]array)
 {
+    int count=0;
+    
+for (int i = 0; i < array.GetLength(0); i++)
 
-    if (index > count)
-    {
-        System.Console.WriteLine("Такого элемента массива не существует");
-    }
-    else
-    {
-        int numI = 0;
-        int numJ = 0;
-        if (index <= cols)
+        for (int j = 0; j < array.GetLength(1); j++)
+        
+        if (array[i, j]==number) 
+            {
+                count++;
+              System.Console.WriteLine($"Такое число находится на {i} строчке и {j} столбце");
+              break;
+            }
+
+  if(count==0)
         {
-            numJ = index - 1;
-            
+            System.Console.WriteLine($"Такое число {number} в массиве не найдено");
         }
-        else if (index == count || index < (count - cols + 1))
-        {
-            numI = rows - 1;
-            numJ = (index % rows) - 1;
-        }
-        else
-        {
-               numI = index/rows;
-            numJ=index%cols;
-           
-            //if (index<cols||index==cols)
-            //{
-               // numJ=index-1;
-            //}
-        }
-
-
-        System.Console.WriteLine($"{numI},{numJ} ");
-
-    }
 }
-
 
 Console.Clear();
 
@@ -76,11 +58,10 @@ System.Console.WriteLine("Введите количество строк");
 int rows = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Введите количество столбцов");
 int cols = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Введите номер элемента массива");
-int index = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Введите число");
+int number = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
 int[,] array = new int[rows, cols];
 FillArray(array);
-int count = rows * cols;
 PrintArray(array);
-FindIndex(array, count, index, cols, rows);
+FindNumber(number,array);
